@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    {% load static %}
+	<meta charset="utf-8" />
+	<title>Table Style</title>
+    <meta name="viewport" content="initial-scale=1.0; maximum-scale=1.0; width=device-width;">
+    <link rel="stylesheet" href="{% static "table.css" %}">
+</head>
+
+<body>
+    <br>
+
+<div class="table-title">
+<span class="badge badge-pill badge-danger p-3"><h1>Word frequency Results</h1></span>
+<br>
+<br>
+<span class="badge badge-secondary"><h3>{{message}}</h3><br>
+<h5>URL: {{web_url.value}}</h5>
+</span>
+</div>
+<table class="table-fill">
+<thead>
+<tr>
+<th class="text-left">Word</th>
+<th class="text-left">Frequency</th>
+</tr>
+</thead>
+<tbody class="table-hover">
+{% for word in web_url.word_set.all %}
+  
+<tr>
+<td class="text-left">{{word.word_name}}</td>
+<td class="text-left">{{word.frequency}}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+  </body>

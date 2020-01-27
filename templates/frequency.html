@@ -1,0 +1,18 @@
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% load static %}
+<link rel="stylesheet" href="{% static "frequency.css" %}">
+<main>
+<form action="/result/" method="POST">
+{% csrf_token %}
+	<h1>SEARCH BOX</h1>
+	<div class="SearchBox">
+		<input type="text" name = "search" class="SearchBox-input" placeholder="Enter your URL">
+	
+			<button class="SearchBox-button" name ="searchButton">
+				<i class="SearchBox-icon material-icons" >search</i>
+			</button>
+		
+	</div>
+</form>
+</main>
