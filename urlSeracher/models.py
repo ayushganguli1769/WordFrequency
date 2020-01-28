@@ -8,4 +8,4 @@ class word(models.Model):
     word_name = models.CharField(max_length= 450, null= True, blank= True)
     frequency = models.IntegerField(null= True)
     def __str__(self):
-        return self.word_name
+        return self.word_name + " - URL -"+ str(self.url.id)

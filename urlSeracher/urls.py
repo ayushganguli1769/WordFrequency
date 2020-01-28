@@ -18,7 +18,8 @@ from . import views
 
 urlpatterns = [
     path('frequency/',views.inputURL, name="inputURL"),
-    path('result/', views.result, name="result")
+    path('result/', views.result, name="result"),
+    path('',views.home, name="home"),
 
 ]
 

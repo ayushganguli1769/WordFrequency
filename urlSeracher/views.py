@@ -32,7 +32,7 @@ def result(request):
             new_url_object.save()
             r = requests.get(url)
             soup = BeautifulSoup(r.content)
-            text = (''.join(s.findAll(text=True))for s in soup.findAll('body'))
+            text = (''.join(s.findAll(text=True))for s in soup.findAll('html'))
             c = Counter((x.rstrip(punctuation).lower() for y in text for x in y.split()))
             count = 0
             i = 0
@@ -41,7 +41,7 @@ def result(request):
             print(data[i][1])
             print(data)
             while (count < 10 and i < len(data) ):
-                if data[i][0] not in common_word_list and data[i][0].rstrip() != "" and data[i][0].isdigit() == False :
+                if data[i][0] not in common_word_list and len(data[i][0]) > 1 and data[i][0].isdigit() == False :
                     word_name = str(data[i][0])
                     frequency = int(data[i][1])
                     new_url_object.word_set.create(word_name = word_name, frequency = frequency)
@@ -49,5 +49,6 @@ def result(request):
                 i += 1
             return render(request, 'result.html', {'message': message,'web_url':new_url_object})
     return render(request,'frequency.html')
-
+def home(request):
+    return render(request,'base.html')
 # Create your views here.
