@@ -98,4 +98,5 @@ give
 day
 most
 us
-
+is
+are
